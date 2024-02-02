@@ -95,6 +95,11 @@
   background-size: cover;
 }
 
-input{
+.form input{
   background: #ffa5001a !important;
+  height: 30px;
+}
+
+.book{
+  background: rgba(1, 30, 48, 0.72);
 }

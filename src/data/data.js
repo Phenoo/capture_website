@@ -1,35 +1,12 @@
 import { FaFacebook, FaInstagram, FaTwitter, FaWhatsapp } from "react-icons/fa";
 
 import serviceItem1 from "@/assets/5.png";
-import icon9 from "@/assets/icon9.svg";
-import icon8 from "@/assets/icon8.svg";
-import icon7 from "@/assets/icon7.svg";
-import icon6 from "@/assets/icon6.svg";
-import icon5 from "@/assets/icon5.svg";
-import icon1 from "@/assets/icon10.svg";
-
-// export const serviceItems = [
-//   {
-//     title: "Solar Panel Installation",
-//     description: "We design and install customized solar panel systems for homes and businesses that maximize energy production and efficiency while reducing your dependence on traditional energy sources."
-//   },
-//   {
-//     title: "Solar Panel Repairs",
-//     description: "If your solar panel system is experiencing any problems, our team of experts is available to diagnose and repair any issues as quickly as possible. Solar Panel Financing: We offer a range of financing options to help make solar panel installation more affordable for homeowners and businesses alike."
-//   },
-//   {
-//     title: "Merchandise of Solar Energy Products",
-//     description: "We offer a comprehensive range of solar panels, battery storage solutions, and other energy-efficient products designed to meet the needs of residential, commercial, and industrial customers."
-//   },
-//   {
-//     title: "Solar Panel Maintenance",
-//     description: "We offer regular maintenance and inspection services to ensure your solar panel system is operating at peak performance, and to identify and address any issues before they become more serious."
-//   },
-//   {
-//     title: "Solar Energy Consulting",
-//     description: "Our team of experts can provide consultation services to help you determine the best solar energy solutions for your specific needs, taking into account factors such as location, energy usage, and budget."
-//   },
-// ]
+import icon9 from "@/assets/estimte.svg";
+import icon8 from "@/assets/ProjectIcon.svg";
+import icon7 from "@/assets/defect.svg";
+import icon6 from "@/assets/handover.svg";
+import icon5 from "@/assets/team.svg";
+import icon1 from "@/assets/buiildfitout.svg";
 
 export const footerItems = [
   {
@@ -71,7 +48,39 @@ export const navLinks = [
   { name: "about", url: "/about" },
   { name: "services", url: "/services" },
   { name: "projects", url: "/projects" },
-  { name: "faqs", url: "/faqs" },
+];
+
+export const industries = [
+  {
+    image: "",
+    name: "Retails",
+    background: "",
+  },
+  {
+    image: "",
+    name: "Office",
+    background: "",
+  },
+  {
+    image: "",
+    name: "Hospitality",
+    background: "",
+  },
+  {
+    image: "",
+    name: "de-fits",
+    background: "",
+  },
+  {
+    image: "",
+    name: "fitness",
+    background: "",
+  },
+  {
+    image: "",
+    name: "childcare",
+    background: "",
+  },
 ];
 
 export const serviceItems = [
@@ -83,7 +92,7 @@ export const serviceItems = [
   },
   {
     image: icon8,
-    Service: "Project Design & Quoting",
+    Service: "Project Design",
     Description:
       "Our design team will provide you withprofessional design services, frominitial concepts, 3D perspectives toFull Documentation sets. All withinyour agreed budget.",
   },
@@ -110,6 +119,45 @@ export const serviceItems = [
     Service: "Handover",
     Description:
       "AGC will complete a final walk-through of the site to ensure allrequirements and standards are metbefore handover to the client.",
+  },
+];
+
+export const serviceItems2 = [
+  {
+    image: icon5,
+    Service: "Initial Consultation",
+    Description:
+      "Let's kickstart the process with an Introductory meeting to delve into your project, comprehend your vision, and establish clear parameters for budget and schedule.",
+  },
+  {
+    image: icon8,
+    Service: "Project Design & Quoting",
+    Description:
+      "Rely on our design experts for comprehensive design solutions, covering initial concepts, 3D perspectives, and complete documentation sets. All delivered seamlessly within your agreed-upon budget.",
+  },
+  {
+    image: icon9,
+    Service: "Quoting",
+    Description:
+      "Receive a tailored quote for the fit-out, aligning with the finalised agreed plans. In this stage, we'll meticulously finalise costs and iron out the finer details to ensure transparency and accuracy in your project estimation.",
+  },
+  {
+    image: icon1,
+    Service: "Build / Fitout",
+    Description:
+      "Capture Projects will initiate the construction tasks, aiming for timely completion within the agreed-upon time frame. We will diligently oversee the entire process, ensuring as smooth and efficient execution from start to finish.",
+  },
+  {
+    image: icon7,
+    Service: "Defects Inspection",
+    Description:
+      "After project completion, Capture Projects ensures perfection through meticulous defects rectification. Our dedicated project manager promptly addresses any imperfections, guaranteeing your satisfaction. Trust us for flawless fit-outs with attention to every detail.",
+  },
+  {
+    image: icon6,
+    Service: "Handover",
+    Description:
+      "Enter the concluding stage—the handover phase. Our skilled team ensures a smooth transition, aligning every detail with your vision. As we finalise your fit-out journey, expect a space that not only meets but surpasses your expectations.",
   },
 ];
 

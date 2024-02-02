@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react'
 import Logo from './Logo';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
+import { Mobile } from './Mobile';
 
 const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
@@ -25,8 +26,8 @@ const Navbar = () => {
 
 
   return (
-    <nav className={`flex  items-center fixed top-0 w-full z-20 ${scrolled ? 'bg-[#ffffff] text-black shadow-md' : 'text-white'} transition-all`} aria-label='navigation'>
-    <header className=' w-[95%] lg:w-[85%] mx-auto py-4'>
+    <nav className={`flex  items-center fixed top-0 w-full z-20 ${scrolled ? 'bg-[#ffffff] text-black shadow-md font-black' : 'text-white'} transition-all`} aria-label='Navigation'>
+    <header className=' w-[95%] lg:w-[85%] mx-auto py-2'>
         <div className='flex justify-between items-center w-full'>
           <Logo />
           <div >
@@ -35,7 +36,7 @@ const Navbar = () => {
                 navLinks.map((link) => (
                   <li key={link.name}>
                     <Link href={link.url} className={cn('capitalize  font-normal text-xl',
-                        pathname === link.url ? 'text-orange-500 font-bold' : 'text-[#24246B]'
+                        pathname === link.url ? 'text-[#24246B] font-bold' : 'text-[#24246B]'
                     )}>
                         {link.name}
                     </Link>
@@ -43,13 +44,14 @@ const Navbar = () => {
                 ))
               }
               <li>
-                <Link href={"/contact"} className='bg-[#24246B] text-white rounded-md p-2'>
+                <Link href={"/contact"} className='bg-[#24246B] text-white rounded-2xl p-2 px-4'>
                   Contact Us
                 </Link>
               </li>
             </ul>
           </div>
           <div className="md:hidden">
+            <Mobile />
             {/* <NavMenu scrolled={scrolled} /> */}
           </div>
         </div>

@@ -2,14 +2,13 @@ import React from 'react'
 import { Button } from './ui/button'
 import { Input } from './ui/input'
 
-const FormComponent = () => {
+const Book = () => {
   return (
-    <div className='form-hero min-h-[85vh] flex justify-center items-center text-[#24246B] p-4 form'>
-        <div className='bg-white w-96 min-h-96 py-4 rounded-md'>
-            <h4 className='font-black text-center text-xl'>
-                CONTACT US FOR A FREE <br /> QUOTE
-            </h4>
-            <div className='space-y-1 p-4 '>
+    <div className='book p-4 md:p-8 space-y-4'>
+        <h4 className='pt-12 text-lg sm:text-xl md:text-2xl font-medium'>
+        Book our complimentary free consultation
+        </h4>
+        <div className='space-y-2'>
                 <div className='grid grid-cols-2 gap-4'>
                     <div>
                         <label htmlFor="">First Name:</label>
@@ -33,24 +32,18 @@ const FormComponent = () => {
 
                 </div>
                 <div>
-                    <label htmlFor="">Project Type:</label>
-                    <Input />
-
-                </div>
-                <div>
-                    <label htmlFor="">Please Provide more details:</label>
-                <textarea  className='h-16 w-full input border bg-[#ffa5001a]' />
+                    <label htmlFor="">Message</label>
+                <textarea  className='h-16 w-full input border bg-[#fff]' />
 
                 </div>
             </div>
-            <div className='mx-auto flex justify-center items-center'>
-              <Button className='border-4 border-[#24246B]' variant={"outline"}>
-               Submit
+            <div className=''>
+              <Button className=' text-[#24246B] rounded-3xl' variant={"outline"}>
+                Contact Us
               </Button>
              </div>
-        </div>
     </div>
   )
 }
 
-export default FormComponent
+export default Book
