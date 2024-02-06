@@ -13,7 +13,7 @@ const query = groq`
   } 
 `
 
-export const revalidate = 20
+export const revalidate = 0
 
 const fetchPosts = async () => {
   try {
@@ -32,8 +32,8 @@ const Page = async () => {
 
   return (
     <div className='min-h-screen'>
-        <Header />
-        <div className='max-w-7xl mx-auto'>
+        <Header title='Latest Projects' />
+        <div className='max-w-7xl mx-auto '>
           <CardContainer projects={posts} />
         </div>
     </div>

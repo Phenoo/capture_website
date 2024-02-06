@@ -1,3 +1,5 @@
+@import url("https://api.fontshare.com/v2/css?f[]=expose@700,400&f[]=clash-display@400,700,500&f[]=alpino@300,400&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -76,20 +78,22 @@
 }
 
 .hero {
-  background-image: url("../assets/Welcome.svg");
+  background-image: url("https://res.cloudinary.com/dnir0cslk/image/upload/v1707013137/Welcome_igkqyy.svg");
   background-repeat: no-repeat;
   width: 100%;
   background-size: cover;
+  background-position: center;
 }
+
 .form-hero {
-  background-image: url("../assets/12.svg");
+  background-image: url("https://res.cloudinary.com/dnir0cslk/image/upload/v1707013267/12_ri4xvj.svg");
   background-repeat: no-repeat;
   width: 100%;
   background-size: cover;
 }
 
 .footer{
-  background-image: url("../assets//footerbg.png");
+  background-image: url("https://res.cloudinary.com/dnir0cslk/image/upload/v1707013115/footerbg_pfqwyy.png");
   background-repeat: no-repeat;
   width: 100%;
   background-size: cover;
@@ -102,4 +106,30 @@
 
 .book{
   background: rgba(1, 30, 48, 0.72);
+}
+
+.header::before{
+  position: absolute;
+  left: -25px;
+  content: "";
+  height: 100%;
+  background: #ddd;
+  width: 10px;
+}
+
+
+h1, h2, h3, h4, span, button{
+  font-family: "Clash Display", sans-serif;
+}
+
+/* h6, button, input, select, a{
+  font-family: "Expose", sans-serif;
+} */
+
+p,  label, a, input{
+  font-family: 'Alpino', sans-serif;
+}
+
+p{
+  font-size: 1rem;
 }

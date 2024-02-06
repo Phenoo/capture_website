@@ -6,8 +6,9 @@ import Logo from './Logo';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { Mobile } from './Mobile';
+import ServicesNav from './ServicesNav';
 
-const Navbar = () => {
+const Navbar = ({components}:any) => {
     const [scrolled, setScrolled] = useState(false);
     const pathname = usePathname()
 
@@ -33,7 +34,21 @@ const Navbar = () => {
           <div >
             <ul className='hidden md:flex gap-6'>
               {
-                navLinks.map((link) => (
+                navLinks.filter((_, i) => i < 2).map((link) => (
+                  <li key={link.name}>
+                    <Link href={link.url} className={cn('capitalize  font-normal text-xl',
+                        pathname === link.url ? 'text-[#24246B] font-bold' : 'text-[#24246B]'
+                    )}>
+                        {link.name}
+                    </Link>
+                  </li>
+                ))
+              }
+              <li>
+                <ServicesNav components={components} />
+              </li>
+              {
+                navLinks.filter((_, i) => i > 2).map((link) => (
                   <li key={link.name}>
                     <Link href={link.url} className={cn('capitalize  font-normal text-xl',
                         pathname === link.url ? 'text-[#24246B] font-bold' : 'text-[#24246B]'

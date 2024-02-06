@@ -26,7 +26,7 @@ export function Mobile() {
     <Sheet>
       <SheetTrigger asChild>
         <Button variant="outline">
-            <VscMenu />
+            <VscMenu color="black" />
         </Button>
       </SheetTrigger>
       <SheetContent>

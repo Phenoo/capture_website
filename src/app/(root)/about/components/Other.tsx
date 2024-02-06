@@ -25,7 +25,7 @@ const Other = () => {
           <div className='flex justify-between px-4'>
           <div>
           <h6 className='text-lg font-bold'>Zambrero </h6>
-          <p className='text-xs'>Kogarah</p>
+          <p className='text-base'>Kogarah</p>
           </div>
           <div>
             <MoveRight />
@@ -46,7 +46,7 @@ const Other = () => {
           <div className='flex justify-between px-4'>
             <div>
             <h6 className='text-lg font-bold'>Lobby Upgrade </h6>
-            <p className='text-xs'>Sydney CBD</p>
+            <p className='text-base'>Sydney CBD</p>
             </div>
             <div>
               <MoveRight />

@@ -6,6 +6,8 @@ import { Public_Sans as FontSans } from "next/font/google"
 import { cn } from "@/lib/utils"
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { client } from "../../../sanity/lib/client";
+import { groq } from "next-sanity";
  
 export const fontSans = FontSans({
   subsets: ["latin"],
@@ -17,11 +19,32 @@ export const metadata: Metadata = {
   description: "Elevating Interiors With Precision",
 };
 
-export default function RootLayout({
+const categoryquery = groq`
+  *[_type=="category"] {
+    ...,
+    "mainImage": mainImage.asset->url,
+  } 
+`
+
+const fetchCategory = async () => {
+  try {
+    const posts = await client.fetch(categoryquery);
+    // Handle the fetched posts data
+    return posts;
+  } catch (error) {
+    console.error('Error fetching posts:', error);
+    return null;
+  }
+};
+
+export const revalidate = 3600
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const category = await fetchCategory()
+  
   return (
     <html lang="en">
         <body
@@ -30,7 +53,7 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        <Navbar />
+        <Navbar components={category}  />
         {children}
         <Footer />
       </body>

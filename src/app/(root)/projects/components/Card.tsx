@@ -8,7 +8,7 @@ const Card = ({item}: any) => {
     const [isLoading, setLoading] = useState(true);
     const router = useRouter();
   return (
-    <div className='w-80 sm:w-96 '>
+    <div className='w-full md:w-96 '>
 
         <div 
             onClick={() => router.push(`/projects/${item.slug.current}`)}
@@ -25,7 +25,7 @@ const Card = ({item}: any) => {
                         ? "scale-110 blur-2xl grayscale"
                         : "scale-100 blur-0 grayscale-0"
                     })`}
-                    onLoadingComplete={() => setLoading(false)}
+                    onLoad={() => setLoading(false)}
                     loading='lazy'
              />
             <div className='absolute bg-black/70 hover:bg-black/40 text-white w-full h-full top-0 left-0 flex items-center flex-col justify-center'>

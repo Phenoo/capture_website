@@ -6,7 +6,7 @@ import { Button } from './ui/button'
 
 const Hero = () => {
   return (
-    <div className='min-h-screen h-full relative hero w-full flex justify-center flex-col items-center'>
+    <div className='min-h-[80vh] md:min-h-screen h-full relative hero w-full flex justify-center flex-col items-center'>
       <div className='flex h-full w-full justify-center items-center max-w-6xl mx-auto p-4'>
         <div className='flex h-full w-full flex-col'>
           <h4 className='text-3xl md:text-4xl lg:text-7xl text-[#001233] font-bold'>

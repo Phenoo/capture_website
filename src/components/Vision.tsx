@@ -9,14 +9,14 @@ import { motion } from 'framer-motion';
 
 const Vision = () => {
   return (
-    <div className=' bg-[#979DAC] p-4 sm:p-6 md:p-8 lg:p-12'>
-      <motion.div
+    <div className=' bg-[#979DAC] h-full  p-4 sm:p-6 md:p-8 lg:p-12 '>
+      <div
+         className='grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-6 h-full place-items-center'>
+        <motion.div
         initial={{opacity: 0, transform: 'translateX(-100%)'}}
         whileInView={{opacity: 1, transform: 'translateX(0%)'}}
-        transition={{duration: 0.9}}
-        viewport={{ once: true }}
-         className='grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-6 h-full place-items-center'>
-        <div>
+        transition={{duration: 0.3}}
+        viewport={{ once: true }}>
           <h4 className='font-black text-2xl md:text-3xl lg:text-5xl uppercase text-white'>building dreams</h4>
           <h4 className='font-black text-2xl md:text-3xl lg:text-5xl uppercase text-[#001233] text-right'>designing reality</h4>
           <p className='text-sm sm:text-base md:text-lg lg:text-xl  text-white font-medium mt-8'>
@@ -28,14 +28,18 @@ const Vision = () => {
             Capture Group is more than construction; it&apos;s a journey, a commitment to quality, 
             and atestament to enduring relationships.
           </p>
-        </div>
+        </motion.div>
 
-        <div className='whitespace-nowrap'>
-          <Image src={visionimg} alt='visin' width={500} height={600}  className='md:h-[600px] w-full'  />
-        </div>
+        <motion.div
+        initial={{opacity: 0, transform: 'translateX(100%)'}}
+        whileInView={{opacity: 1, transform: 'translateX(0%)'}}
+        transition={{duration: 0.3}}
+        viewport={{ once: true }} className='h-full'>
+          <Image src={visionimg} alt='visin' width={600} height={800}  className='transition-opacity h-full w-full'  />
+        </motion.div>
 
 
-      </motion.div>
+      </div>
     </div>
   )
 }

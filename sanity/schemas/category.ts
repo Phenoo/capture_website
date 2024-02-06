@@ -15,5 +15,22 @@ export default defineType({
       title: 'Description',
       type: 'text',
     }),
+    defineField(   {
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: {
+        source: 'title',
+        maxLength: 100,
+      },
+    }),
+    defineField({
+      name: 'mainImage',
+      title: 'Main image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+    }),
   ],
 })

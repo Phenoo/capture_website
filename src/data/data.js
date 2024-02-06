@@ -131,7 +131,7 @@ export const serviceItems2 = [
   },
   {
     image: icon8,
-    Service: "Project Design & Quoting",
+    Service: "Project Design",
     Description:
       "Rely on our design experts for comprehensive design solutions, covering initial concepts, 3D perspectives, and complete documentation sets. All delivered seamlessly within your agreed-upon budget.",
   },

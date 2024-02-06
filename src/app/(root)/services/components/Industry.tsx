@@ -9,11 +9,12 @@ import Support from "@/assets/icon _People Carry_.svg"
 const Industry = () => {
   return (
     <div className='flex flex-col sm:gap-12 justify-center items-center gap-8 text-center py-12'>
-        <h4 className='text-xl md:text-2xl lg:text-4xl font-bold'>
+        <h4 className='text-2xl lg:text-4xl font-bold text-[#24246B]'>
             Industries
         </h4>
 
-        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4'>
+        <div className='grid grid-cols-2 md:grid-cols-4 gap-4'>
+            
             <div className='space-y-4 w-52 flex justify-center flex-col text-center items-center'>
                 <Image src={Envison} alt='envison' className='' width={40} height={40} />
                 <h4 className='text-xl font-medium text-[#979DAC]'>Envision</h4>
