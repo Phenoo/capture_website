@@ -7,6 +7,7 @@ import Industry from './components/Industry'
 import Sections from './components/Sections'
 import { groq } from 'next-sanity'
 import { client } from '../../../../sanity/lib/client'
+import Faq from './components/Faq'
 
 const categoryquery = groq`
   *[_type=="category"] {
@@ -28,6 +29,14 @@ const fetchCategory = async () => {
 
 export const revalidate = 3600
 
+import type { Metadata } from "next";
+
+
+export const metadata: Metadata = {
+  title: "Services - Capture",
+  description: "Elevating Interiors With Precision",
+};
+
 const Page = async () => {
   const category = await fetchCategory()
 
@@ -39,6 +48,7 @@ const Page = async () => {
       <Sections data={category} />
       <Stats />
       <Offers />
+      <Faq />
     </div>
   )
 }

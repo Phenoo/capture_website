@@ -8,6 +8,9 @@ import Header from '../../projects/components/Header';
 import CardContainer from '../../projects/components/CardContainer';
 import Back from '@/components/Back';
 import { AlertTriangle } from 'lucide-react';
+import HeroCategory from '@/components/HeroCategory';
+import Faq from '../../services/components/Faq';
+import Stats from '../../about/components/Stats';
 
 type Props = {
     params: {
@@ -51,7 +54,9 @@ const Categorypage = async ({ params: { slug } }: Props) => {
 
   return (
       <div className=''>
-        <Header title={slug} />
+      <div className='h-16 bg-white w-full' />
+        <HeroCategory title={tags.title} description={tags.description || ""}  />
+        {/* <Header title={slug} /> */}
         <div className='max-w-7xl mx-auto py-10'>
           <Back />
           
@@ -69,6 +74,8 @@ const Categorypage = async ({ params: { slug } }: Props) => {
             <p className='text-center'><AlertTriangle /></p>
           </div>
         }
+        <Stats />
+        <Faq />
       </div>
 
   )

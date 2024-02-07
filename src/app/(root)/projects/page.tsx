@@ -5,7 +5,13 @@ import { groq } from "next-sanity"
 import { client } from '../../../../sanity/lib/client';
 import CardContainer from './components/CardContainer';
 
+import type { Metadata } from "next";
 
+
+export const metadata: Metadata = {
+  title: "Projects - Capture",
+  description: "Elevating Interiors With Precision",
+};
 
 const query = groq`
   *[_type=="project"] {
@@ -26,12 +32,14 @@ const fetchPosts = async () => {
   }
 };
 
+
 const Page = async () => {
   const posts = await fetchPosts()
 
 
   return (
     <div className='min-h-screen'>
+      
         <Header title='Latest Projects' />
         <div className='max-w-7xl mx-auto '>
           <CardContainer projects={posts} />

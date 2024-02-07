@@ -5,4 +5,5 @@ export interface Page extends SanityDocument {
 	_type: 'page';
 	slug: Slug;
 	title: string;
+	description?: string;
 }

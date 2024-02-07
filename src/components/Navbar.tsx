@@ -66,7 +66,7 @@ const Navbar = ({components}:any) => {
             </ul>
           </div>
           <div className="md:hidden">
-            <Mobile />
+            <Mobile components={components} />
             {/* <NavMenu scrolled={scrolled} /> */}
           </div>
         </div>

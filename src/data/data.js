@@ -23,7 +23,7 @@ export const footerItems = [
     links: [
       { name: "About us", url: "/about" },
       { name: "Projects", url: "/projects" },
-      { name: "FAQs", url: "/faqs" },
+      { name: "FAQs", url: "/services" },
       { name: "Support", url: "/support" },
       { name: "Contact Us", url: "/contact-us" },
     ],
@@ -48,6 +48,7 @@ export const navLinks = [
   { name: "about", url: "/about" },
   { name: "services", url: "/services" },
   { name: "projects", url: "/projects" },
+  { name: "blogs", url: "/blogs" },
 ];
 
 export const industries = [
@@ -163,29 +164,106 @@ export const serviceItems2 = [
 
 export const faqItems = [
   {
-    Question: "What type of gadgets do you sell?",
+    Question: "What is a fitout?",
     Answer:
-      "We sell a wide variety of gadgets, including smartphones, tablets, laptops, headphones, speakers, smartwatches, fitness trackers, and more.",
+      "A fitout refers to the process of making interior spaces suitable for occupation. It involves the design, construction, and furnishing of commercial or residential spaces to meet specific requirements.",
   },
   {
-    Question: "What is your return policy?",
+    Question: "What types of fitout services do you offer?",
     Answer:
-      "We offer a 30-day return policy on most items. Items must be in their original packaging and in like-new condition to be eligible for return. Please refer to our Return Policy page for more information.",
+      "We offer a range of fitout services including office fitouts, retail fitouts, hospitality fitouts, medical fitouts, fitness fitout, beauty fitout and shop fitout.",
   },
   {
-    Question: "Do you offer warranties on your products?",
+    Question: "Do you provide design services?",
     Answer:
-      "Yes, we offer warranties on most of our products. Warranty periods and coverage vary by product. Please refer to the product description or contact us for more information.",
+      "Yes, we offer comprehensive design services tailored to your needs and preferences, ensuring that your space reflects your brand identity and meets functional requirements.",
   },
   {
-    Question: "How long does it take to process orders?",
+    Question: "How long does a fitout project typically take?",
     Answer:
-      "Most orders are processed and shipped within 1-2 business days. Shipping times vary depending on your location and the shipping method you choose. You will receive a confirmation email with tracking information once your order has been shipped.",
+      "The duration of a fitout project varies depending on the size, complexity, and specific requirements of the project. We will provide you with a detailed timeline during the consultation phase.",
   },
   {
-    Question: "Do you offer free shipping?",
+    Question: "Do you handle all aspects of the fitout process?",
     Answer:
-      "We offer free shipping on all orders over $50 within the continental United States. Shipping rates for international orders and orders under $50 may vary. Please refer to our Shipping Policy page for more information.",
+      "Yes, we manage every aspect of the fitout process from initial design concepts to final construction and installation, ensuring a seamless and stress-free experience for our clients.",
+  },
+  {
+    Question:
+      "Are your fitout services compliant with local regulations and codes?",
+    Answer:
+      "Absolutely, we adhere to all relevant building codes, regulations, and standards in Sydney and ensure that our fitout projects comply with all necessary requirements.",
+  },
+  {
+    Question: "Can you work with our existing space and budget constraints?",
+    Answer:
+      "Yes, we understand the importance of working within specified budgets and maximising the potential of existing spaces. Our team will work closely with you to achieve your goals while staying within budgetary constraints.",
+  },
+  {
+    Question: "What sets your company apart from other fitout providers?",
+    Answer:
+      "Our commitment to quality craftsmanship, attention to detail, and personalized approach sets us apart. We prioritize client satisfaction and strive to exceed expectations on every project.",
+  },
+  {
+    Question: "Do you offer sustainable fitout solutions?",
+    Answer:
+      "Yes, we are dedicated to promoting sustainable practices in all aspects of our work. We offer eco-friendly materials, energy-efficient designs, and waste reduction strategies to minimize our environmental impact.",
+  },
+  {
+    Question: "Can you assist with obtaining necessary permits and approvals?",
+    Answer:
+      "Yes, we have experience navigating the permit and approval process in Sydney. We will handle all necessary paperwork and liaise with relevant authorities on your behalf.",
+  },
+  {
+    Question:
+      "How do you ensure the safety of workers and occupants during the fitout process?",
+    Answer:
+      "Safety is our top priority. We implement rigorous safety protocols, provide appropriate training to our staff, and adhere to all relevant occupational health and safety regulations to ensure a safe working environment.",
+  },
+  {
+    Question: "Do you offer maintenance services after the fitout is complete?",
+    Answer:
+      "Yes, we offer ongoing maintenance services to ensure that your space remains in optimal condition long after the fitout is complete. Our team is available to address any issues or concerns promptly.",
+  },
+  {
+    Question: "Can you accommodate special requirements or customisations?",
+    Answer:
+      "Absolutely, we understand that every project is unique and are happy to accommodate special requirements or customizations to meet your specific needs and preferences.",
+  },
+  {
+    Question: "What payment options do you accept?",
+    Answer:
+      "We accept various payment methods including bank transfers, credit cards, and electronic payments for your convenience. Our team will provide you with detailed payment terms and options.",
+  },
+  {
+    Question: "Do you provide warranties for your fitout services?",
+    Answer:
+      "Yes, we stand behind the quality of our workmanship and materials. We offer warranties on our fitout services to provide you with peace of mind and assurance of our commitment to excellence.",
+  },
+  {
+    Question: "Can you provide references or examples of past projects?",
+    Answer:
+      "Certainly, we have a portfolio of past projects that showcase our expertise and capabilities.",
+  },
+  {
+    Question: "How do I get started with a fitout project?",
+    Answer:
+      "Simply contact us to schedule an initial consultation. During this meeting, we will discuss your requirements, budget, and timeline to develop a tailored plan for your fitout project.",
+  },
+  {
+    Question: "Do you offer free consultations?",
+    Answer:
+      "Yes, we offer complimentary consultations to discuss your fitout needs and provide you with an overview of our services and capabilities.",
+  },
+  {
+    Question: "Can you assist with space planning and optimisation?",
+    Answer:
+      "Absolutely, our team of experts specializes in space planning and optimization to maximize functionality and efficiency in your space.",
+  },
+  {
+    Question: "What is the best way to contact your company?",
+    Answer:
+      "You can reach us via phone, email, or through the contact form on our website. Our friendly team is always available to answer any questions and assist you with your fitout project.",
   },
 ];
 

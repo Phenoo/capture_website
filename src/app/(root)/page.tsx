@@ -4,9 +4,18 @@ import Industry from "@/components/Industry";
 import Offers from "@/components/Offers";
 import Recents from "@/components/Recents";
 import Vision from "@/components/Vision";
-import Image from "next/image";
 import { client } from "../../../sanity/lib/client";
 import { groq } from "next-sanity";
+
+import type { Metadata } from "next";
+
+
+export const metadata: Metadata = {
+  title: "Home Page - Capture",
+  description: "Capture Group's spirit emanates from a culture that cherishes people and relationships. As a family, we stand united — from our team to clients and subcontractors.",
+  keywords: ""
+};
+
 
 const query = groq`
   *[_type=="project"] {
@@ -20,7 +29,7 @@ const categoryquery = groq`
   } 
 `
 
-export const revalidate = 0
+export const revalidate = 120
 
 const fetchPosts = async () => {
   try {
@@ -50,7 +59,6 @@ export default async function Home() {
   const category = await fetchCategory()
   const data = posts.filter((_: any, i: number) => i < 6)
 
-  console.log(category)
 
   return (
     <main className="h-full">

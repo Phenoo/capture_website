@@ -18,8 +18,9 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { VscMenu } from "react-icons/vsc"
 import Logo from "./Logo"
+import ServicesNav from "./ServicesNav"
 
-export function Mobile() {
+export function Mobile({components}: any) {
     const pathname = usePathname()
 
   return (
@@ -38,10 +39,26 @@ export function Mobile() {
         <div className="grid gap-4 py-6">
         <ul className='flex flex-col gap-6'>
               {
-                navLinks.map((link) => (
+               navLinks.filter((_, i) => i < 2).map((link) => (
                   <li key={link.name}>
                     <Link href={link.url} className={cn('capitalize  font-normal text-xl',
-                        pathname === link.url ? 'text-orange-500 font-bold' : 'text-[#24246B]'
+                        pathname === link.url ? ' font-black' : 'text-[#24246B]'
+                    )}>
+                      <SheetClose>
+                      {link.name}
+
+                      </SheetClose>
+                    </Link>
+                  </li>
+                ))
+              }
+              <ServicesNav components={components} />
+
+{
+               navLinks.filter((_, i) => i > 2).map((link) => (
+                  <li key={link.name}>
+                    <Link href={link.url} className={cn('capitalize  font-normal text-xl',
+                        pathname === link.url ? ' font-black' : 'text-[#24246B]'
                     )}>
                       <SheetClose>
                       {link.name}
@@ -52,9 +69,11 @@ export function Mobile() {
                 ))
               }
               <li>
+               <SheetClose>
                 <Link href={"/contact"} className='bg-[#24246B] text-white rounded-2xl p-2 px-4'>
                   Contact Us
                 </Link>
+               </SheetClose>
               </li>
             </ul>
         </div>

@@ -1,10 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 
-import office from "@/assets/7.svg"
-import retail from "@/assets/10.svg"
-import beauty from "@/assets/15.svg"
-import hospitality from "@/assets/9.svg"
+
 import Link from 'next/link'
 
 const Industry = ({data}: any) => {
@@ -15,15 +12,7 @@ const Industry = ({data}: any) => {
             Industries
             </h4>  
             <div className='mt-4'>
-                <div className='grid grid-cols-1 md:grid-cols-5 gap-4 font-bold'>
-                    <div className='relative h-96  md:h-[450px] w-full '>
-                        <Image src={office} alt='office'fill className='w-full h-full object-cover' />
-                        <div className=' bg-black/50 hover:bg-black/20 transition-all cursor-pointer absolute top-0 w-full h-full justify-center items-center flex text-white text-sm md:text-lg uppercase'>
-                            <h4>
-                                office
-                            </h4>
-                        </div>
-                    </div>
+                <div className='grid grid-cols-1 md:grid-cols-5 gap-4 font-bold'> 
                     {
                         data.map((item: any) => (
                             <Link href={`/category/${item.slug.current}`} className='relative h-96  md:h-[450px] w-full' key={item._id}>

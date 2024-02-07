@@ -3,6 +3,8 @@
 # dependencies
 /node_modules
 
+/assets
+
 /src/assets
 
 /.pnp
@@ -37,5 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+.vercel
 
 .vercel
