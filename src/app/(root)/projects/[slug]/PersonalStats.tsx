@@ -16,8 +16,8 @@ interface PersonalStatsProps {
 }
 const PersonalStats = ({size, duration, location}: PersonalStatsProps) => {
   return (
-    <div  className='bg-[#011E30] text-white p-4 sm:p-8 lg:p-12 py-20'>
-        <div className='flex items-center justify-between md:justify-center lg:gap-16 md:gap-8 flex-row  gap-4'>
+    <div  className='bg-[#111] text-white p-4 sm:p-8 lg:p-12 py-20'>
+        <div className='flex items-center justify-between md:justify-center lg:gap-16 gap-8 flex-col  sm:flex-row  '>
             <div className='text-center flex items-center gap-2' >
                 <Image src={area} width={80} height={50}  className='w-8 h-6 sm:w-10 sm:h-8 md:w-16 md:h-10 object-contain' alt='area' />
                 <h4 className="capitalize text-sm  md:text-2xl lg:text-3xl font-medium">

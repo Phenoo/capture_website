@@ -10,13 +10,14 @@ import hospitality from "@/assets/9.svg"
 import { Button } from './ui/button'
 import { useRouter } from 'next/navigation'
 import Card from '@/app/(root)/projects/components/Card'
+import Link from 'next/link'
 
 const Recents = ({data}:any) => {
   const router = useRouter()
   return (
-    <div className='bg-white p-4 sm:p-6 md:p-8 py-12'>
+    <div className='bg-[#212121] text-white p-4 sm:p-6 md:p-8 py-12'>
     <div className='max-w-6xl mx-auto'>
-     <h4 className='font-black text-xl sm:text-3xl lg:text-4xl capitalize'>
+     <h4 className='font-medium text-xl sm:text-3xl lg:text-4xl capitalize'>
          Our Recent Projects
          </h4>  
          <div className='mt-4 space-y-4'>
@@ -28,9 +29,9 @@ const Recents = ({data}:any) => {
                 }
              </div>
              <div className='mx-auto max-w-7xl flex justify-center items-center'>
-              <Button className='border-4 border-[#24246B]' variant={"outline"} onClick={() => router.push("/projects")}>
+              <Link href={"/projects"} className='text-white border-white border rounded-3xl p-2 px-4' >
                 All Projects
-              </Button>
+              </Link>
              </div>
          </div>
      </div>  

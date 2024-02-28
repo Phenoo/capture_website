@@ -12,7 +12,8 @@ import { client } from '../../../../sanity/lib/client'
 
 export const metadata: Metadata = {
   title: "About - Capture",
-  description: "Elevating Interiors With Precision",
+  description: "Capture Projects is a Sydney based construction fitout company that specialises in design and construct projects. With a reputation of delivering exceptional projects we are the go to company for all your fitout needs throughout Sydney",
+  keywords: ["about capture projects,about  capture australia, about capture group projects,  about capture group projects australia, capture projects, capture australia, capture group projects,  capture group projects australia, capture group projects syndey,  capture  projects australia, capture  projects syndey , capture interior, interior decoration, interior design, home decor, modern interior, design services,  office australia, retail australia, fitness  australia, home improvement, Australia, Aussie, melborne, syndey, caprentry"],
 };
 
 

@@ -1,42 +1,51 @@
+"use client"
 import { Button } from '@/components/ui/button'
 import React from 'react'
 
-import ourproject from "@/assets/Our Projects.png"
+import ourproject from "@/assets/Picture1.png"
+import logo from "@/assets/Capture Projects Logo Design - (05-10-2023)-01-01 2.svg"
 import Image from 'next/image'
 
-import Img1 from  '@/assets/undraw_online_page_re_lhgx.svg'
+import { useRouter } from 'next/navigation'
+import Link from 'next/link'
+
+import { motion } from 'framer-motion'
 
 
 const Hero = () => {
+    const router = useRouter()
   return (
-    <div className='min-h-screen h-full  max-w-6xl mx-auto flex justify-center flex-col items-center relative'>
-        <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
-        <div className='space-y-4 justify-center flex flex-col gap-4 md:gap-8 p-4 md:pt-0 pt-28 md:p-0'>
-            <h4 className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-[#001233] tracking-wider font-'>
-                    Experience the difference <br /> build with <br />
-                </h4>
-                <span className='my-4 text-2xl sm:text-3xl md:text-4xl lg:text-6xl text-[#001233] font-bold'>
-                        Capture
-                    </span>
-                <p className='mt-8'>
-                Transform your Sydney office, fitness, beauty, retail or hospitality space with our expert design and construct fitout services
+    <div className='h-[90vh] about-hero  bg-[#111] w-full   flex justify-center flex-col items-center relative'>
+        <div className='grid gap-8 grid-cols-1 md:grid-cols-2 max-w-6xjl mx-auto w-full'> 
+        <div className='hidden md:block'>
+
+        </div>
+            <motion.div 
+                    initial={{opacity: 0, x: 20}}
+                    animate={{opacity: 1, x: 0}}
+                    transition={{duration: 0.5, easing: 'ease'}}
+                className='relative w-full h-full flex  flex-col items-center md:items-start justify-center md:justify-start gap-12 p-4'>
+              <h1 className='font-medium text-center md:text-left text-3xl md:text-4xl leading-none text-[#fff] '>
+                    We transform spaces with unique design and comprehensive construction knowledge
+                </h1>
+                <p className='text-lg md:text-xl lg:text-2xl text-white'>
+                Our mission is to be your partner in capturing inspiring spaces brought to life to suit your business
                 </p>
-                <Button className='bg-[#011E30] w-fit rounded-3xl'>
-                    Learn More
-                </Button>
-            </div>
-            <div>
-                <Image 
+
+                <Link href={"/projects"} className='w-fit flex md:justify-start justify-center' id='bottone1'>
+                    Discover  Our Projects
+                </Link>
+                {/* <Image 
                     src={ourproject}
                     alt='Oheroabout'
-                    width={500}
-                    height={600}
-                />
-            </div>
+                    width={700}
+                    height={700}
+                    className='w-[700px] '
+                /> */}
+            </motion.div>
+
         </div>
-        <div className="absolute bottom-8 right-4 w-20">
-        <Image src={Img1} alt='engine' className='' />
-      </div>
+       
     </div>
   )
 }

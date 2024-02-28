@@ -6,6 +6,7 @@ import { client } from '../../../../sanity/lib/client';
 import CardContainer from './components/CardContainer';
 
 import type { Metadata } from "next";
+import HeroProject from './components/HeroProject';
 
 
 export const metadata: Metadata = {
@@ -19,7 +20,7 @@ const query = groq`
   } 
 `
 
-export const revalidate = 0
+export const revalidate = 3600
 
 const fetchPosts = async () => {
   try {
@@ -38,9 +39,8 @@ const Page = async () => {
 
 
   return (
-    <div className='min-h-screen'>
-      
-        <Header title='Latest Projects' />
+    <div className=''>
+      <HeroProject />
         <div className='max-w-7xl mx-auto '>
           <CardContainer projects={posts} />
         </div>

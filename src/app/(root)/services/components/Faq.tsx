@@ -16,18 +16,18 @@ const Faq = () => {
       }
     }
   return (
-    <div className='bg-[#c4dbf6] relative py-8 flex justify-center flex-col'>
-        <h4 className='font-semibold text-xl sm:text-3xl lg:text-4xl text-center text-[#24246B] capitalize'>
+    <div className='bg-neutral-900/90 text-white relative py-8 flex justify-center flex-col'>
+        <h4 className='font-medium text-xl sm:text-3xl lg:text-4xl text-center text-[#fff] capitalize'>
         frequently asked questions
         </h4>
 
-      <div className='max-w-6xl mx-auto'>
+      <div className='max-w-5xl mx-auto p-2'>
       {
             faqItems.map((item, index) => (
-              <article key={index} className='py-6 overflow-hidden border-b border-b-[#111] cursor-pointer ' onClick={() => handleClick(index)}>
+              <article key={index} className='py-6 overflow-hidden border-b border-b-[#ddd] cursor-pointer ' onClick={() => handleClick(index)}>
                 <div className="flex justify-between items-center"  onClick={() => handleClick(index)}>
-                  <h4 className={`text-md md:text-lg capitalize font-[500] ${sindex === index ? ' font-bold' : ''}`} >
-                    <span className='font-bold mr-4'>{index < 9 && "0"}{index + 1}</span>{item.Question}
+                  <h4 className={`text-md md:text-lg capitalize font-[500] ${sindex === index ? '' : ''}`} >
+                    <span className=' mr-4'>{index < 9 && "0"}{index + 1}</span>{item.Question}
                     </h4>
                   <div>
                     <button onClick={() => handleClick(index)}
@@ -35,7 +35,7 @@ const Faq = () => {
                     >
                       {
                       sindex === index ? 
-                        <Minus color='#054FB3' />
+                        <Minus  />
                       :
                       <Plus />
                       }
@@ -57,7 +57,7 @@ const Faq = () => {
                           height: 0,
                           transition: {  duration: 0.2, delay: 0.3 }
                         }}
-                        className='mt-4 text-lg'
+                        className='mt-4 text-sm  md:text-base'
                       >
                         {item.Answer}
                       </motion.p>

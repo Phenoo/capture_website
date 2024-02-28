@@ -11,6 +11,10 @@ import { AlertTriangle } from 'lucide-react';
 import HeroCategory from '@/components/HeroCategory';
 import Faq from '../../services/components/Faq';
 import Stats from '../../about/components/Stats';
+import Industry from '../../services/components/Industry';
+import BlogSection from '@/components/BlogSection';
+import Offers from '@/components/Offers';
+import PortableBody from '@/components/portable';
 
 type Props = {
     params: {
@@ -18,7 +22,7 @@ type Props = {
     };
   };
   
-  export const revalidate = 60;
+  export const revalidate = 3600
 
 export async function generateStaticParams(){
     const query = groq`*[__type == "category"]
@@ -34,13 +38,29 @@ export async function generateStaticParams(){
     }))
 }
 
+async function getData() {
+  const query = `
+  *[_type == 'post'] | order(_createdAt desc) {
+    ...,
+    "mainImage": mainImage.asset->url
+  }`;
+
+  const data = await client.fetch(query);
+  return data;
+};
+
+
 const Categorypage = async ({ params: { slug } }: Props) => {
     const query = groq`*[_type == "category" && slug.current == $slug ] {
         _id,
         title,
         description,
+        "mainImage": mainImage.asset->url,
+        body,
+
         "projects": *[_type=='project' && references(^._id)] {
           title,
+          
           categories[]->,
           slug,
           publishedAt,
@@ -49,32 +69,24 @@ const Categorypage = async ({ params: { slug } }: Props) => {
       }[0]`;
 
       const clientFetch = cache(client.fetch.bind(client));
-      const tags = await clientFetch<Page>(query, { slug }); 
-      const posts= tags?.projects 
+      const tags = await clientFetch<Page>(query, { slug });
+      const blogs = await getData()
+      const blogPosts = blogs.filter((_: any, i: number) => i < 3) 
+
 
   return (
       <div className=''>
-      <div className='h-16 bg-white w-full' />
-        <HeroCategory title={tags.title} description={tags.description || ""}  />
+      {/* <div className='h-16 bg-[#F7F4ED] text-black w-full' /> */}
+        <HeroCategory title={tags.title} description={tags.description || ""} image={tags.mainImage}  />
         {/* <Header title={slug} /> */}
-        <div className='max-w-7xl mx-auto py-10'>
-          <Back />
-          
-          <h4 className='font-bold text-xl md:text-3xl lg:text-4xl'>
-            Projects related to {slug}:
-          </h4>
-        </div>
-        {
-          //@ts-ignore
-          posts?.length > 0  ? 
-          <CardContainer projects={posts} />
-          :
-          <div className='text-center flex justify-center gap-2 py-16'>
-            <p className='font-medium text-lg md:text-xl'>Nothing is here </p>
-            <p className='text-center'><AlertTriangle /></p>
-          </div>
-        }
+ 
         <Stats />
+        <Industry />
+        <PortableBody value={tags.body} />
+
+        <Offers />
+
+        <BlogSection data={blogPosts} />
         <Faq />
       </div>
 

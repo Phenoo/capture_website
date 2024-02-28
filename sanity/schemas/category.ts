@@ -32,5 +32,10 @@ export default defineType({
         hotspot: true,
       },
     }),
+    defineField({
+      name: 'body',
+      title: 'Body',
+      type: 'blockContent',
+    }),
   ],
 })

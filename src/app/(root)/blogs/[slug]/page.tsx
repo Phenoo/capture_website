@@ -5,8 +5,15 @@ import { client } from '../../../../../sanity/lib/client';
 import urlFor from '../../../../../sanity/lib/urlFor';
 import Header from '../components/Header';
 
+import { Metadata } from "next";
+import PortableBody from '@/components/portable';
+import { Swiper } from '@/components/Swiper';
+import ContactLink from '@/components/ContactLink';
 
-export const revalidate = 60; // Refetch blog posts every 30 seconds
+import noimage from "@/assets/noimage.png"
+
+
+export const revalidate = 3600
 
 async function getData(slug: string) {
     const query = `
@@ -19,31 +26,62 @@ async function getData(slug: string) {
     return data;
 };
 
+export async function generateMetadata({
+  params: { slug },
+}: any): Promise<Metadata> {
+  const post = await getData(slug);
+  // const post = await response.json();
+
+  return {
+    title: post.title,
+    description: post.description,
+  };
+}
+
+async function getDataProjects() {
+  const query = `
+  *[_type == 'project'] | order(_createdAt desc) {
+    ...,
+    "mainImage": mainImage.asset->url
+
+  }`;
+
+  const data = await client.fetch(query);
+  return data;
+};
+
 export default async function Page({
     params
 } : {params: {slug: string}}) {
     const data = await getData(params.slug);
+    const dataprojects = await getDataProjects()
+
+  const projects = dataprojects.filter((_: any, i: number) => i < 6)
+
+
 
   return (
-    <div className="mt-7">
-      <div className='h-16 bg-white w-full' />
+    <div className="w-full">
+      <div className='h-16 bg- w-full' />
             <Header title={data.title} />
 
-           <div className='max-w-4xl mx-auto pb-20'>
+           <div className='max-w-4xl mx-auto pb-20 p-4'>
            <Image
-                src={urlFor(data.mainImage).url()}
+                src={data.mainImage || noimage }
                 alt="Title Image"
                 width={800}
                 height={800}
                 priority
-                className="rounded-lg mt-7 border"
+                className="rounded-lg mt-7 max-h-[60vh] object-contain w-full border"
             />
 
             <div className="mt-16 prose prose-blue prose-lg dark:prose-invert prose-li:marker:text-primary prose-a:text-primary">
-                <PortableText value={data.body} />
+                <PortableBody value={data.body} />
             </div>
 
            </div>
+           <ContactLink />
+           <Swiper data={projects} title="Recent" />
         </div>
   )
 }

@@ -8,12 +8,15 @@ import { client } from "../../../sanity/lib/client";
 import { groq } from "next-sanity";
 
 import type { Metadata } from "next";
+import BlogSection from "@/components/BlogSection";
+import Note from "@/components/Note";
 
 
 export const metadata: Metadata = {
   title: "Home Page - Capture",
-  description: "Capture Group's spirit emanates from a culture that cherishes people and relationships. As a family, we stand united — from our team to clients and subcontractors.",
-  keywords: ""
+  description: "Capture Projects is a Sydney based construction fitout company that specialises in design and construct projects. With a reputation of delivering exceptional projects we are the go to company for all your fitout needs throughout Sydney.",
+  keywords: ["capture projects, capture australia, capture group projects,  capture group projects australia, capture group projects syndey,  capture  projects australia, capture  projects syndey, interior syndey, capture projects syndey, syndey works , capture interior, interior decoration, interior design, home decor, modern interior, design services,  office australia, retail australia, fitness  australia, home improvement, Australia, Aussie, melborne, syndey, caprentry"],
+  
 };
 
 
@@ -29,7 +32,7 @@ const categoryquery = groq`
   } 
 `
 
-export const revalidate = 120
+export const revalidate = 3600
 
 const fetchPosts = async () => {
   try {
@@ -53,20 +56,34 @@ const fetchCategory = async () => {
   }
 };
 
+async function getData() {
+  const query = `
+  *[_type == 'post'] | order(_createdAt desc) {
+    ...,
+    "mainImage": mainImage.asset->url
+  }`;
+
+  const data = await client.fetch(query);
+  return data;
+};
+
 
 export default async function Home() {
   const posts = await fetchPosts()
   const category = await fetchCategory()
+  const blogs = await getData()
+  const blogPosts = blogs.filter((_: any, i: number) => i < 3)
   const data = posts.filter((_: any, i: number) => i < 6)
 
 
   return (
     <main className="h-full">
       <Hero />
-      <Vision />
+      <Note />
       <Offers />
       <Industry data={category} />
       <Recents data={data} />
+      <BlogSection data={blogPosts} />
       <FormComponent />
     </main>
   );

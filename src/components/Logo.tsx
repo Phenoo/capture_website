@@ -1,12 +1,23 @@
 import React from 'react'
 
-import logoimg from "@/assets/Capture Projects Logo Design - (05-10-2023)-01-01 2.png"
+import logoimg from "@/assets/Capture Projects Logo Design - (05-10-2023)-01-01 2.svg"
+import newlogo from "@/assets/newlogo.png"
 import Image from 'next/image'
+import Link from 'next/link'
 
-const Logo = () => {
+const Logo = ({scrolled}: any) => {
   return (
-    <div>
-        <Image src={logoimg} width={153} height={50} alt='logo' className='object-contain' />
+    <div className='flex justify-center items-center  md:h-28 h-14'>
+      <Link href="/" className='md:flex justify-center items-center h-full hidden'>
+
+        <Image src={newlogo} width={200} height={100} alt='logo' className='object-contain' />
+        
+      </Link>
+      <Link href="/" className='flex justify-center items-center h-full md:hidden'>
+       
+          <Image src={newlogo} width={150} height={50} alt='logo' className='object-contain' />
+        
+      </Link>
     </div>
   )
 }

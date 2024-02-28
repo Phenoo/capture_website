@@ -47,6 +47,32 @@ export default defineType({
         of: [{ type: 'image' }],
         // options: { hotspot: true }, 
       }),  
+      defineField({
+        name: "planImage",
+        title: "Planning Image",
+        type: 'image',
+        options: {
+          hotspot: true,
+        }
+        // options: { hotspot: true }, 
+      }),  
+      defineField({
+        name: "designImage",
+        title: "Design Image",
+        type: 'image',
+        options: {
+          hotspot: true,
+        }, 
+      }),  
+      defineField({
+        name: "constructImage",
+        title: "Construction Image",
+        type: 'image',
+        options: {
+          hotspot: true,
+        },
+        // options: { hotspot: true }, 
+      }),  
 
       
       defineField({

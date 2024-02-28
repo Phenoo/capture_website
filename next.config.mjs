@@ -6,6 +6,7 @@ const nextConfig = {
       "i.insider.com",
       "cdn.sanity.io",
       "images.pexels.com",
+      "res.cloudinary.com",
     ],
   },
 };

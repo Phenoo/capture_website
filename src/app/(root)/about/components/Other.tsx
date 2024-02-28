@@ -11,18 +11,18 @@ import Link from 'next/link'
 
 const Other = ({data}: any) => {
   return (
-    <div className='max-w-6xl mx-auto py-12 md:px-0 px-2 space-y-4 text-[#06004B'>
-      <h4 className='text-lg sm:text-xl text-[#06004B] md:text-2xl lg:text-3xl font-bold'>
+    <div className='max-w-6xl mx-auto py-12 md:px-0 px-4 space-y-4 text-[#06004B'>
+      <h4 className='text-lg sm:text-xl text-[#111] md:text-2xl lg:text-3xl font-medium'>
         View Other Projects
       </h4>
       <div className='grid grid-cols-1 gap-4 place-items-center md:grid-cols-2 lg:grid-cols-3'>
         {
           data.map((item: any) => (
             <Link href={`/projects/${item.slug.current}`} className='space-y-2 transition-all hover:scale-95' key={item.slug.current}>
-           <div className='w-full md:w80 h-96'>
+           <div className='w-full md:w-96 h-96'>
            <Image 
               src={item.mainImage}
-              width={360}
+              width={350}
               height={400}
               alt='project1'
               className='h-full w-full'
@@ -30,7 +30,7 @@ const Other = ({data}: any) => {
            </div>
             <div className='flex justify-between px-4'>
             <div>
-            <h6 className='text-lg font-bold'>{item.title} </h6>
+            <h6 className='text-lg font-medium'>{item.title} </h6>
             <p className='text-base'>{item.location}</p>
             </div>
             <div>
@@ -49,7 +49,7 @@ const Other = ({data}: any) => {
         
       </div>
      <div className='flex justify-center'>
-     <Link href="/projects" className='bg-[#06004B] rounded-3xl p-2 transition-opacity text-white'>
+     <Link href="/projects" className='hover:bg-black hover:text-white hover:scale-95 border-black border px-4 rounded-3xl p-2 transition-all text-black'>
         View Project Portfolio
       </Link>
      </div>

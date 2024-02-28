@@ -7,7 +7,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Contact Us - Capture",
-  description: "Elevating Interiors With Precision",
+  description: 'Feel free to reach out! Whether you have a project idea, a question, or just want to connect. Drop me a message using the form below or shoot an email to info@ycaptureprojects.com.au I look forward to hearing from you and exploring potential collaborations.',
 };
 
 

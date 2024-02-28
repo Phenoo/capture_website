@@ -1,21 +1,13 @@
 import React from 'react'
 
-import ork from "@/assets/undraw_qa_engineers_dg-5-p.svg"
-import chore from "@/assets/undraw_chore_list_re_2lq8.svg"
-import Image from 'next/image'
 
 const Header = ({title}: {title: string}) => {
   return (
-    <div  className='bg-[#011E30] h-80 mt-16 flex items-center justify-center text-white p-4 sm:p-8 lg:p-12 py-20 relative'>
+    <div  className='bg-[#b8b4ae] border-b h-64 flex items-center justify-center text-[#011E30] p-4 sm:p-8 lg:p-12 py-20 relative'>
         <h4 className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold header capitalize relative mx-2'>
             {title}
         </h4>
-        <div className='w-40 md:w-56 absolute bottom-0 left-4'>
-          <Image src={ork} width={100} height={100} alt='work' className='animate-pulse w-full h-full object-contain' />
-        </div>
-        <div className='w-20 absolute top-4 right-4'>
-          <Image src={chore} width={100} height={100} alt='work' className='w-full h-full object-contain' />
-        </div>
+       
     </div>
   )
 }

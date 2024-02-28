@@ -8,14 +8,14 @@ import icon6 from "@/assets/handover.svg";
 import icon5 from "@/assets/team.svg";
 import icon1 from "@/assets/buiildfitout.svg";
 
+import partner from "@/assets/partner-50.png";
+import design from "@/assets/design-thinking.png";
 export const footerItems = [
   {
     title: "About Us",
     links: [
-      { name: "Our Story", url: "/our-story" },
-      { name: "Team", url: "/team" },
-      { name: "Careers", url: "/careers" },
-      { name: "Press", url: "/press" },
+      { name: "Our Story", url: "/about" },
+      { name: "Blogs", url: "/blogs" },
     ],
   },
   {
@@ -23,9 +23,8 @@ export const footerItems = [
     links: [
       { name: "About us", url: "/about" },
       { name: "Projects", url: "/projects" },
-      { name: "FAQs", url: "/services" },
-      { name: "Support", url: "/support" },
-      { name: "Contact Us", url: "/contact-us" },
+      { name: "Services", url: "/services" },
+      { name: "Contact Us", url: "/contact" },
     ],
   },
 ];
@@ -44,11 +43,11 @@ export const foot = [
 ];
 
 export const navLinks = [
-  { name: "home", url: "/" },
-  { name: "about", url: "/about" },
-  { name: "services", url: "/services" },
-  { name: "projects", url: "/projects" },
-  { name: "blogs", url: "/blogs" },
+  { name: "Home", url: "/" },
+  { name: "About", url: "/about" },
+  { name: "Services", url: "/services" },
+  { name: "Projects", url: "/projects" },
+  { name: "Blogs", url: "/blogs" },
 ];
 
 export const industries = [
@@ -86,40 +85,22 @@ export const industries = [
 
 export const serviceItems = [
   {
-    image: icon5,
-    Service: "Initial Consultation",
+    image: design,
+    Service: "Specialist Design",
     Description:
-      "An initial meeting will be held todiscuss your project, understandyour vision, confirming budget +schedule.",
+      "Your Goals are our goals. Our Design process allows us to understand your specific business needs and objectives.",
   },
   {
     image: icon8,
-    Service: "Project Design",
+    Service: "Project Management",
     Description:
-      "Our design team will provide you withprofessional design services, frominitial concepts, 3D perspectives toFull Documentation sets. All withinyour agreed budget.",
+      "Capture group outlines a unique end to end approach for each project to tackle project management, engineering, and construction.",
   },
   {
-    image: icon9,
-    Service: "Quoting",
+    image: partner,
+    Service: "Continual Partnership",
     Description:
-      "We will provide a quote for the fit-out based on the final agreed plans.During this stage w",
-  },
-  {
-    image: icon1,
-    Service: "Build / Fitout",
-    Description:
-      "AGC will commence theconstruction work to be completedwithin an agreed time-frame. Anappointed AGC project managerwill supervise the entire process.",
-  },
-  {
-    image: icon7,
-    Service: "Defects Inspection",
-    Description:
-      "AGC will commence the constructionwork to be completed within anagreed time-frame. An appointedAGC project manager will supervise",
-  },
-  {
-    image: icon6,
-    Service: "Handover",
-    Description:
-      "AGC will complete a final walk-through of the site to ensure allrequirements and standards are metbefore handover to the client.",
+      "We believe in defect-free handover, with this commitment we offer our clients a 24-month defect liability period at no additional cost.",
   },
 ];
 

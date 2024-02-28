@@ -16,16 +16,21 @@ import Link from "next/link"
 
   
   
-  const ServicesNav = ({components}: any) => {
+interface ServicesNavProps{
+  components: any;
+  toggle?: any;
+}
+
+  const ServicesNav = ({components, toggle}: ServicesNavProps) => {
     return (
         <NavigationMenu className="bg-transparent">
         <NavigationMenuList>
             <NavigationMenuItem>
-            <NavigationMenuTrigger className="text-[#24246B] p-0 h-auto bg-transparent">
-                <p className="font-normal text-xl">Services</p>
+            <NavigationMenuTrigger className="p-0 h-auto bg-transparent">
+                <p className="font-normal text-lg">Services</p>
             </NavigationMenuTrigger>
             <NavigationMenuContent>
-            <ul className="grid gap-3 grid-cols-2 p-4 w-[300px]  ">
+            <ul className="grid gap-3 grid-cols-2 p-4 w-[400px]">
             {components.map((component: any) => (
                 <ListItem
                   key={component.title}
@@ -55,12 +60,12 @@ return (
       <a
         ref={ref}
         className={cn(
-          "block select-none space-y-1 rounded-md p-2 leading-none no-underline outline-none transition-colors hover:bg-accent text-[#24246B] hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+          "block select-none space-y-1 rounded-md p-2 leading-none no-underline outline-none transition-colors hover:bg-accent text-[#111] hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
           className
         )}
         {...props}
       >
-        <div className="text-sm font-bold  leading-none">{title}</div>
+        <div className="text-sm font-medium capitalize  leading-none">{title}</div>
      
       </a>
     </NavigationMenuLink>

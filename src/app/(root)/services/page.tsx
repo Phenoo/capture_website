@@ -27,9 +27,21 @@ const fetchCategory = async () => {
   }
 };
 
+async function getData() {
+  const query = `
+  *[_type == 'post'] | order(_createdAt desc) {
+    ...,
+    "mainImage": mainImage.asset->url
+  }`;
+
+  const data = await client.fetch(query);
+  return data;
+};
+
 export const revalidate = 3600
 
 import type { Metadata } from "next";
+import BlogSection from '@/components/BlogSection'
 
 
 export const metadata: Metadata = {
@@ -39,15 +51,17 @@ export const metadata: Metadata = {
 
 const Page = async () => {
   const category = await fetchCategory()
+  const blogs = await getData()
+  const blogPosts = blogs.filter((_: any, i: number) => i < 3)
 
   return (
     <div>
-      <div className='h-16 bg-white w-full' />
-      <Hero />
+      <Hero  />
       <Industry   />
       <Sections data={category} />
       <Stats />
       <Offers />
+      <BlogSection data={blogPosts} />
       <Faq />
     </div>
   )

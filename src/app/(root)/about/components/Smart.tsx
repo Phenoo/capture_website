@@ -1,60 +1,49 @@
-import { Button } from '@/components/ui/button'
+"use client"
 import Image from 'next/image'
 import React from 'react'
 
-import fitout from "@/assets/fitout.svg"
-import ssyny from "@/assets/syndy.svg"
 
-import Img1 from  '@/assets/undraw_qa_engineers_dg-5-p.svg'
+import { useRouter } from 'next/navigation'
+import { serviceItems } from '@/data/data'
+
+import { motion } from 'framer-motion'
+
 
 
 const Smart = () => {
+  const router = useRouter()
   return (
-    <div className='bg-[#979DAC] text-[#001233] py-12 relative'>
-      <div className='max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 md:gap-8 gap-4 p-2'>
-        <div className='flex gap-4'>
-         <div>
-          <Image 
-              src={fitout}
-              alt='fitout'
-              width={250}
-              height={250}
-              className=''
-            />
-            <p className='text-base'>
-            Sydney Office Fit out
-            </p>
-         </div>
+    <div className='bg-[#ccc7bf] text-[#111] py-16 relative'>
+      <motion.div 
+        initial={{opacity: 0, transform: 'translateY(100%)'}}
+        whileInView={{opacity: 1, transform: 'translateY(0%)'}}
+        transition={{duration: 0.5, easing: 'ease'}}
+        
 
-         <div>
-          <Image 
-              src={ssyny}
-              alt='fitout'
-              width={250}
-              height={500}
-              className=''
-            />
-            <p className='text-base'>
-            Cafe and Woekspace Refurbishment
-            </p>
-         </div>
-        </div>
+        className='max-w-6xl mx-auto grid  md:gap-8 gap-4 p-2'>
         <div className='space-y-4'>
-          <h4 className='text-2xl md:text-4xl lg:text-5xl font-bold'>
+          <h4 className='text-2xl md:text-4xl  font-medium leading-7'>
           Why we are the smart choice
           </h4>
-          <p className='md:w-96 text-base'>
-          What sets us apart is not just our expertise in office, fitness, shop, beauty, and commercial fitouts, but our unwavering commitment to understanding your unique vision. We believe that every space tells a story, and through our meticulous process, we ensure that your narrative unfolds seamlessly.
-          </p>
-          <Button className='bg-white text-[#001233] hover:text-white rounded-3xl'>
-            Contact Us 
-          </Button>
+       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-8 gap-4 p-2'>
+        {
+          serviceItems.map((item, index) => (
+            <div key={index} className='border p-4 border-black cursor-pointer hover:scale-95 hover:bg-black/30 hover:text-[#ccc7bf] transition-all space-y-4'>
+              <Image src={item.image} width={60} height={60} alt={item.Service} />
+              <h4 className='font-medium text-xl md:text-2xl'>
+                {item.Service}
+              </h4>
+              <p>
+                {item.Description}
+              </p>
+            </div>
+          ))
+        }
+       </div>
         </div>
-      </div>
+      </motion.div>
 
-      <div className="absolute bottom-8 right-4 w-28">
-        <Image src={Img1} alt='engine' className='animate-pulse' />
-      </div>
+     
     </div>
   )
 }

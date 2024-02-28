@@ -6,10 +6,10 @@ import Image from 'next/image'
 
 const Header = ({title}: {title: string}) => {
   return (
-    <div  className='bg-[#011E30] h-80 mt-16 flex items-center flex-col justify-center text-white p-4 sm:p-8 lg:p-12 py-20 relative'>
+    <div  className='bg-[#011E30] h-56 flex items-center flex-col justify-center text-white p-4 sm:p-8 lg:p-12 py-20 relative'>
         <h4 className='text-xl font-semibold'>Capture - Blog</h4>
         <button></button>
-        <h4 className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold header capitalize relative mx-2'>
+        <h4 className='text-2xl sm:text-3xl lg:text-4xl  font-bold header capitalize relative mx-auto text-center'>
             {title}
         </h4>
         <div className='w-40 md:w-56 absolute bottom-0 left-4'>

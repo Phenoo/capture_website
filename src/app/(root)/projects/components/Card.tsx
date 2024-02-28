@@ -3,22 +3,25 @@ import Image from 'next/image'
 import React, { useState } from 'react'
 import urlFor from '../../../../../sanity/lib/urlFor'
 import { useRouter } from 'next/navigation'
+import Link from 'next/link'
+
+import { motion } from "framer-motion";
+
 
 const Card = ({item}: any) => {
     const [isLoading, setLoading] = useState(true);
     const router = useRouter();
   return (
-    <div className='w-full md:w-96 '>
+    <Link href={`/projects/${item?.slug?.current}`} className='w-full md:w-96'>
 
         <div 
-            onClick={() => router.push(`/projects/${item.slug.current}`)}
-            className='aspect-square w-full h-80 relative cursor-pointer overflow-hidden'>
+            className='aspect-square w-full h-80 relative cursor-pointer overflow-hidden group'>
             <Image   
                 src={
                 urlFor(item?.mainImage).url()
               }
-              alt={item.title} fill  
-                className={`object-cover w-full h-full hover:scale-105 hover:opacity-90  transition rounded-t-md
+              alt={item?.title} fill  
+                className={`object-cover w-full h-full group-hover:scale-110 hover:opacity-90  transition rounded-t-md
                     duration-300 ease-in-out group-hover:opacity-75
                     ${
                     isLoading
@@ -28,14 +31,17 @@ const Card = ({item}: any) => {
                     onLoad={() => setLoading(false)}
                     loading='lazy'
              />
-            <div className='absolute bg-black/70 hover:bg-black/40 text-white w-full h-full top-0 left-0 flex items-center flex-col justify-center'>
-                <h4 className='text-lg sm:text-xl font-semibold'>{item?.title || "Name withheld"}</h4>
-                <p className='uppercase text-sm'>{item?.location || "Australia"}</p>
-            </div>
+            <motion.div 
+              initial={{opacity: 0, transform: 'translateY(-100%)'}}
+              animate={{opacity: 1, transform: 'translateY(0%)'}}
+              className='hidden group-hover:flex transition-all duration-75  absolute bg-black/50  text-white w-full h-full top-0 left-0  items-center flex-col justify-center'>
+                <h4 className='transition-all text-lg sm:text-xl font-medium'>{item?.title || "Name withheld"}</h4>
+                <p className='transition-all uppercase text-sm'>{item?.location || "Australia"}</p>
+            </motion.div>
 
            
         </div>
-    </div>
+    </Link>
   )
 }
 
