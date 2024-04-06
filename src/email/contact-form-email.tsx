@@ -16,7 +16,6 @@ type ContactFormEmailProps = {
   message: string;
   senderEmail: string;
   firstName: string;
-  lastName: string;
   phoneNumber: string;
 };
 
@@ -24,13 +23,12 @@ export default function ContactFormEmail({
   message,
   senderEmail,
   firstName,
-  lastName,
-  phoneNumber
+  phoneNumber,
 }: ContactFormEmailProps) {
   return (
     <Html>
       <Head />
-      <Preview>New message from your  site</Preview>
+      <Preview>New message from your site</Preview>
       <Tailwind>
         <Body className="bg-gray-100 text-black">
           <Container>
@@ -40,10 +38,9 @@ export default function ContactFormEmail({
               </Heading>
               <Text>{message}</Text>
               <Hr />
-              <Text>The sender&apos;s name is: {firstName} {lastName}</Text>
+              <Text>The sender&apos;s name is: {firstName}</Text>
               <Text>The sender&apos;s email is: {senderEmail}</Text>
               <Text>The sender&apos;s phone number is: {phoneNumber}</Text>
-              
             </Section>
           </Container>
         </Body>

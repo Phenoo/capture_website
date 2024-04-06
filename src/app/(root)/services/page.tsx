@@ -1,20 +1,28 @@
-import React from 'react'
-import Working from './components/Working'
-import Stats from '../about/components/Stats'
-import Hero from './components/Hero'
-import Offers from '@/components/Offers'
-import Industry from './components/Industry'
-import Sections from './components/Sections'
-import { groq } from 'next-sanity'
-import { client } from '../../../../sanity/lib/client'
-import Faq from './components/Faq'
+import React from "react";
+import Stats from "../about/components/Stats";
+
+import Sections from "./components/Sections";
+import { groq } from "next-sanity";
+import { client } from "../../../../sanity/lib/client";
+import Faq from "./components/Faq";
+
+import type { Metadata } from "next";
+import BlogSection from "@/components/BlogSection";
+import Service from "@/components/Services";
+import FormComponent from "@/components/FormComponent";
+import Header from "../projects/components/Header";
+
+export const metadata: Metadata = {
+  title: "Services - Capture",
+  description: "Elevating Interiors With Precision",
+};
 
 const categoryquery = groq`
   *[_type=="category"] {
     ...,
     "mainImage": mainImage.asset->url,
   } 
-`
+`;
 
 const fetchCategory = async () => {
   try {
@@ -22,7 +30,7 @@ const fetchCategory = async () => {
     // Handle the fetched posts data
     return posts;
   } catch (error) {
-    console.error('Error fetching posts:', error);
+    console.error("Error fetching posts:", error);
     return null;
   }
 };
@@ -36,35 +44,26 @@ async function getData() {
 
   const data = await client.fetch(query);
   return data;
-};
+}
 
-export const revalidate = 3600
-
-import type { Metadata } from "next";
-import BlogSection from '@/components/BlogSection'
-
-
-export const metadata: Metadata = {
-  title: "Services - Capture",
-  description: "Elevating Interiors With Precision",
-};
+export const revalidate = 360;
 
 const Page = async () => {
-  const category = await fetchCategory()
-  const blogs = await getData()
-  const blogPosts = blogs.filter((_: any, i: number) => i < 3)
+  const category = await fetchCategory();
+  const blogs = await getData();
+  const blogPosts = blogs.filter((_: any, i: number) => i < 3);
 
   return (
     <div>
-      <Hero  />
-      <Industry   />
+      <Header title="Services" />
       <Sections data={category} />
       <Stats />
-      <Offers />
+      <Service />
+      <FormComponent />
       <BlogSection data={blogPosts} />
       <Faq />
     </div>
-  )
-}
+  );
+};
 
-export default Page
+export default Page;

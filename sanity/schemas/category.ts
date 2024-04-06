@@ -15,6 +15,19 @@ export default defineType({
       title: 'Description',
       type: 'text',
     }),
+    defineField({
+      name: 'whats',
+      title: 'Whats',
+      type: 'text',
+    }),
+    defineField({
+      name: "list",
+      title: "List",
+      type: "array",
+      // @ts-ignore
+      of: [{ type: 'text' }],
+      // options: { hotspot: true }, 
+    }),  
     defineField(   {
       name: 'slug',
       title: 'Slug',

@@ -27,7 +27,7 @@ interface ServicesNavProps{
         <NavigationMenuList>
             <NavigationMenuItem>
             <NavigationMenuTrigger className="p-0 h-auto bg-transparent">
-                <p className="font-normal text-lg">Services</p>
+                <p className="font-normal text-lg m-0">Services</p>
             </NavigationMenuTrigger>
             <NavigationMenuContent>
             <ul className="grid gap-3 grid-cols-2 p-4 w-[400px]">

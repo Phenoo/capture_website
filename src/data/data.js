@@ -1,12 +1,12 @@
 import { FaFacebook, FaInstagram, FaTwitter, FaWhatsapp } from "react-icons/fa";
 
 import serviceItem1 from "@/assets/5.png";
-import icon9 from "@/assets/estimte.svg";
-import icon8 from "@/assets/ProjectIcon.svg";
-import icon7 from "@/assets/defect.svg";
+import icon9 from "@/assets/estimation.svg";
+import icon8 from "@/assets/hook.svg";
+import icon7 from "@/assets/key.svg";
 import icon6 from "@/assets/handover.svg";
-import icon5 from "@/assets/team.svg";
-import icon1 from "@/assets/buiildfitout.svg";
+import icon5 from "@/assets/consulting.svg";
+import icon1 from "@/assets/engineer.svg";
 
 import partner from "@/assets/partner-50.png";
 import design from "@/assets/design-thinking.png";
@@ -108,36 +108,35 @@ export const serviceItems2 = [
   {
     image: icon5,
     Service: "Initial Consultation",
+    animation: 500,
     Description:
       "Let's kickstart the process with an Introductory meeting to delve into your project, comprehend your vision, and establish clear parameters for budget and schedule.",
   },
   {
-    image: icon8,
+    image: icon1,
     Service: "Project Design",
+    animation: 650,
     Description:
       "Rely on our design experts for comprehensive design solutions, covering initial concepts, 3D perspectives, and complete documentation sets. All delivered seamlessly within your agreed-upon budget.",
   },
   {
     image: icon9,
     Service: "Quoting",
+    animation: 800,
     Description:
       "Receive a tailored quote for the fit-out, aligning with the finalised agreed plans. In this stage, we'll meticulously finalise costs and iron out the finer details to ensure transparency and accuracy in your project estimation.",
   },
   {
-    image: icon1,
+    image: icon8,
     Service: "Build / Fitout",
+    animation: 950,
     Description:
       "Capture Projects will initiate the construction tasks, aiming for timely completion within the agreed-upon time frame. We will diligently oversee the entire process, ensuring as smooth and efficient execution from start to finish.",
   },
   {
     image: icon7,
-    Service: "Defects Inspection",
-    Description:
-      "After project completion, Capture Projects ensures perfection through meticulous defects rectification. Our dedicated project manager promptly addresses any imperfections, guaranteeing your satisfaction. Trust us for flawless fit-outs with attention to every detail.",
-  },
-  {
-    image: icon6,
     Service: "Handover",
+    animation: 1250,
     Description:
       "Enter the concluding stage—the handover phase. Our skilled team ensures a smooth transition, aligning every detail with your vision. As we finalise your fit-out journey, expect a space that not only meets but surpasses your expectations.",
   },

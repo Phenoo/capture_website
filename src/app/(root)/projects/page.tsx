@@ -1,13 +1,14 @@
-import React from 'react'
-import Header from './components/Header'
+import React from "react";
+import Header from "./components/Header";
 
-import { groq } from "next-sanity"
-import { client } from '../../../../sanity/lib/client';
-import CardContainer from './components/CardContainer';
+import { groq } from "next-sanity";
+import { client } from "../../../../sanity/lib/client";
+import CardContainer from "./components/CardContainer";
 
 import type { Metadata } from "next";
-import HeroProject from './components/HeroProject';
+import HeroProject from "./components/HeroProject";
 
+import "../../globals.scss";
 
 export const metadata: Metadata = {
   title: "Projects - Capture",
@@ -17,10 +18,11 @@ export const metadata: Metadata = {
 const query = groq`
   *[_type=="project"] {
     ...,
+    "mainImage": mainImage.asset->url,
   } 
-`
+`;
 
-export const revalidate = 3600
+export const revalidate = 3600;
 
 const fetchPosts = async () => {
   try {
@@ -28,24 +30,22 @@ const fetchPosts = async () => {
     // Handle the fetched posts data
     return posts;
   } catch (error) {
-    console.error('Error fetching posts:', error);
+    console.error("Error fetching posts:", error);
     return null;
   }
 };
 
-
 const Page = async () => {
-  const posts = await fetchPosts()
-
+  const posts = await fetchPosts();
 
   return (
-    <div className=''>
+    <div className="">
       <HeroProject />
-        <div className='max-w-7xl mx-auto '>
-          <CardContainer projects={posts} />
-        </div>
+      <div className="max-w-7xl mx-auto pb-32">
+        <CardContainer projects={posts} />
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Page
+export default Page;

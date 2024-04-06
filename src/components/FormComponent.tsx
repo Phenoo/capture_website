@@ -1,94 +1,100 @@
+"use client";
 
+import React, { useState } from "react";
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
+import { sendEmail } from "@/actions/sendEmail";
+import toast from "react-hot-toast";
+import Reveal from "./Reveal";
 
-"use client"
-
-import React from 'react'
-import { Button } from './ui/button'
-import { Input } from './ui/input'
-import { sendEmail } from '@/actions/sendEmail'
-import toast from 'react-hot-toast'
+import "../app/globals.scss";
 
 const FormComponent = () => {
+  const [isLoading, setIsLoading] = useState(false);
   return (
-    <div className='form-hero min-h-[85vh] flex justify-center items-center text-[#111] p-4 form'>
-        <div className='bg-white w-full sm:w-96 min-h-96 p-4 rounded-md'>
-            <h4 className='font-medium text-center text-xl'>
-                CONTACT US FOR A FREE <br /> QUOTE
-            </h4>
+    <Reveal width="100%">
+      <div className="h-full contact-hero">
+        <div className=" bg-neutral-900/70 text-white h-screen w-full py-20">
+          <div className="max-w-6xl mx-auto h-full w-full flex flex-col justify-center p-2 md:p-4 ">
+            <div className="max-w-3xl mx-auto text-center">
+              <span className="subtitle">GET IN TOUCH</span>
+              <h2 className="content-title heading-md mb-4">
+                Contact our support team to grow your business
+              </h2>
+            </div>
             <form
-        className="mt-10 flex flex-col dark:text-black"
-        action={async (formData) => {
-          const { data, error } = await sendEmail(formData);
-
-          if (error) {
-            toast.error(error);
-            return;
-          }
-
-          toast.success("Email sent successfully!");
-        }}
-      >
- <div className='space-y-2'>
-                <div className='grid grid-cols-2 gap-4'>
-                    <div>
-                        <label htmlFor="">First Name:</label>
-                        <Input  
-                          name="firstName"
-                          required
-                          maxLength={500}
-                        />
-                    </div>
-                    <div>
-                        <label htmlFor="">Last Name:</label>
-                        <Input
-                          name="lastName"
-                          required
-                          maxLength={500}
-                        />                        
-                    </div>
-                </div>
-
-                <div>
-                    <label htmlFor="">Email:</label>
-                    <Input 
-                      name="senderEmail"
-                      type="email"
+              className="flex flex-col text-white"
+              action={async (formData) => {
+                const { data, error } = await sendEmail(formData);
+                if (error) {
+                  toast.error(error);
+                  return;
+                }
+                toast.success("Email sent successfully!");
+                window.location.reload();
+              }}
+            >
+              <div className="row gutter-y-default">
+                <div className="grid grid-cols-1  md:grid-cols-2   gap-4">
+                  <div className="col-lg-12">
+                    <label htmlFor="">Name:</label>
+                    <Input
+                      name="firstName"
+                      className="form-control  text-white"
                       required
                       maxLength={500}
                     />
-
-                </div>
-                <div>
-                    <label htmlFor="">Phone Number:</label>
-                    <Input 
-                     name="phoneNumber"
-                     type="tel"
-                     required
-                     maxLength={500}
+                  </div>
+                  <div className="col-lg-12">
+                    <label htmlFor="">Email:</label>
+                    <Input
+                      name="senderEmail"
+                      type="email"
+                      className="form-control  text-white"
+                      required
+                      maxLength={500}
                     />
-
+                  </div>
+                  <div className="col-lg-12">
+                    <label htmlFor="">Phone Number:</label>
+                    <Input
+                      name="phoneNumber"
+                      type="tel"
+                      required
+                      maxLength={500}
+                      className="form-control  text-white"
+                    />
+                  </div>
                 </div>
-                <div>
-                    <label htmlFor="">Message</label>
-                <textarea  className='h-16 w-full input border bg-[#ffa5001a]' 
-                  name="message"
-                  required
-                  maxLength={5000}
-                />
 
+                <div className="col-lg-12">
+                  <label htmlFor="">Message</label>
+                  <textarea
+                    className="form-control border-white text-white"
+                    name="message"
+                    required
+                    maxLength={5000}
+                  />
                 </div>
-            </div>
-            <div className='mx-auto flex justify-center items-center'>
-              <Button  type='submit' >
-               Submit
-              </Button>
-             </div>
-
-      </form>
-           
+              </div>
+              <br />
+              <div className="max-w-xl mx-auto">
+                <button
+                  type="submit"
+                  disabled={isLoading}
+                  className="bg-white btn btn-white hvr-white-primary"
+                >
+                  Send Message
+                </button>
+              </div>{" "}
+              <br />
+              <br />
+            </form>
+          </div>
         </div>
-    </div>
-  )
-}
+      </div>
+    </Reveal>
+  );
+};
 
-export default FormComponent
+export default FormComponent;

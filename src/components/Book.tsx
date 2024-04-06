@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react'
+import React, { useState } from 'react'
 import { Button } from './ui/button'
 import { Input } from './ui/input'
 import { sendEmail } from '@/actions/sendEmail'
@@ -8,6 +8,8 @@ import toast from 'react-hot-toast';
 
 
 const Book = () => {
+  const [isLoading, setIsLoading] = useState(false)
+
   return (
     <div className=' bg-neutral-900/90 p-4 md:p-8 space-y-4 flex flex-col justify-center '>
         <h4 className='pt-12 text-lg sm:text-xl md:text-2xl font-medium'>
@@ -16,14 +18,14 @@ const Book = () => {
         <form
         className="mt-10 flex flex-col dark:text-black"
         action={async (formData) => {
-          const { data, error } = await sendEmail(formData);
 
+          const { data, error } = await sendEmail(formData);
           if (error) {
             toast.error(error);
             return;
           }
-
           toast.success("Email sent successfully!");
+          window.location.reload()
         }}
       >
         <div className='space-y-2'>
@@ -77,7 +79,7 @@ const Book = () => {
                 </div>
             </div>
             <div className=''>
-              <Button className=' text-[#24246B] rounded-3xl mt-4' type='submit' variant={"outline"}>
+              <Button disabled={isLoading} className=' text-[#24246B] rounded-3xl mt-4' type='submit' variant={"outline"}>
                 Contact Us
               </Button>
              </div>

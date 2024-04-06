@@ -1,38 +1,31 @@
-import React from 'react'
+import React from "react";
 
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
-import urlFor from '../../../../../sanity/lib/urlFor';
+import urlFor from "../../../../../sanity/lib/urlFor";
 
-import noimage from "@/assets/noimage.png"
+import noimage from "@/assets/noimage.png";
+import Reveal from "@/components/Reveal";
+import { MotionDiv } from "@/lib/framer";
+import ArticleCard from "@/components/Blogcard";
 
-export const BlogContainer = ({data}: any) => {
+export const BlogContainer = ({ data }: any) => {
   return (
-    <div className='max-w-6xl mx-auto'>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-5 gap-4">
-    {data.map((post: any) => (
-      <Card key={post?.slug?.current}>
-        <Image src={post.mainImage || noimage} alt="Title Image" width={500} height={500} className="rounded-t-lg h-[200px] object-cover" />
-
-        <CardContent className="mt-5">
-          <div className='h-14'>
-            <h3 className="text-xl line-clamp-2 font-medium">{post?.title}</h3>
-          </div>
-          <div className=''>
-            <p className="line-clamp-3 text-sm mt-2 text-gray-600 dark:text-gray-300">{post?.description}</p>
-          </div>
-          <Button asChild className="w-full mt-7">
-            <Link href={`/blogs/${post?.slug?.current}`}>
-              Read More
-            </Link>
-          </Button>
-
-        </CardContent>
-      </Card>
-    ))}
-  </div>  
-    </div>
-  )
-}
+    <MotionDiv
+      initial={{ opacity: 0, transform: "translateY(100%)" }}
+      animate={{ opacity: 1, transform: "translateY(0%)" }}
+      transition={{ duration: 0.5, easing: "ease" }}
+      className="max-w-6xl mx-auto overflow-hidden p-4"
+    >
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-4 place-items-center">
+        {data.map((post: any) => (
+          <Reveal width="100%" key={post?.slug?.current}>
+            <ArticleCard post={post} />
+          </Reveal>
+        ))}
+      </div>
+    </MotionDiv>
+  );
+};

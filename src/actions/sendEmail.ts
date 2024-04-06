@@ -11,7 +11,6 @@ export const sendEmail = async (formData: FormData) => {
   const senderEmail = formData.get("senderEmail");
   const message = formData.get("message");
   const firstName = formData.get("firstName");
-  const lastName = formData.get("lastName");
   const phoneNumber = formData.get("phoneNumber");
 
   
@@ -32,11 +31,6 @@ export const sendEmail = async (formData: FormData) => {
       error: "Invalid message",
     };
   }
-  if (!validateString(lastName, 500)) {
-    return {
-      error: "Invalid message",
-    };
-  }
   if (!validateString(phoneNumber, 500)) {
     return {
       error: "Invalid message",
@@ -48,14 +42,13 @@ export const sendEmail = async (formData: FormData) => {
   try {
     data = await resend.emails.send({
       from: "Contact Form <onboarding@resend.dev>",
-      to: "Info@capturegroup.com.au",
+      to: "info@captureprojects.com.au",
       subject: "Message from contact form",
       reply_to: senderEmail,
       react: React.createElement(ContactFormEmail, {
         message: message,
         senderEmail: senderEmail,
         firstName: firstName,
-        lastName: lastName,
         phoneNumber: phoneNumber,
       }),
     });

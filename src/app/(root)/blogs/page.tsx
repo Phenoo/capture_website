@@ -1,10 +1,12 @@
-import React from 'react'
-import { client } from '../../../../sanity/lib/client';
-import Header from '../projects/components/Header';
-import { BlogContainer } from './components/BlogContainer';
-import HeroProject from './components/HeroBlog';
+import React from "react";
+import { client } from "../../../../sanity/lib/client";
+import Header from "../projects/components/Header";
+import { BlogContainer } from "./components/BlogContainer";
+import HeroProject from "./components/HeroBlog";
 
-export const revalidate = 3600
+export const revalidate = 360;
+
+import "../../globals.scss";
 
 async function getData() {
   const query = `
@@ -15,23 +17,19 @@ async function getData() {
 
   const data = await client.fetch(query);
   return data;
-};
-
-
-
-
+}
 
 const Page = async () => {
-    const data = await getData()
+  const data = await getData();
 
   return (
     <div>
       <HeroProject />
-      <div className='py-16'>
+      <div className="pb-32 bg-[#f5f5f5]">
         <BlogContainer data={data} />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Page
+export default Page;
