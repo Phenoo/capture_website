@@ -18,10 +18,10 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./*"]
     },
     "target": "ES2017"
   },
-  "include": ["video.d.ts", "next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/data/data.js", "src/app/gtag.js", "src/app/GoogleAnalytics.Jsx"],
+  "include": ["video.d.ts", "next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "data/data.js", "app/gtag.js", "app/GoogleAnalytics.Jsx"],
   "exclude": ["node_modules"]
 }
